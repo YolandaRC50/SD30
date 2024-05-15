@@ -1,0 +1,2 @@
+   Sys_RT_Status.Pressure_Set_Cal_5Bar_Enable=POWER_ON;    //5 BAR CAL
+_OUT_PUT_AN=Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_2_Value;    //CAL(5 BAR)数值传送给比例阀

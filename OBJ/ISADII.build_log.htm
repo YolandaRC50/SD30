@@ -1,0 +1,79 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.27.0.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Rody Peng, CD Taicen, LIC=CRMLQ-N9W1K-BV71G-V5IPN-V7YG3-ITRMC
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.27.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.27.0.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+I:\ROBOT IDH\SVN\New Purge Tank ISAD II\SoftWare\ISAD_II_RTOS_By_Rody\USER\ISAD_II_RTOS_By_Rody.uvprojx
+Project File Date:  07/04/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'ISADII'
+compiling APP.c...
+..\SYSTEM\Timer\timer.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\Pressure\Pressure.h(51): warning:  #1295-D: Deprecated declaration SetPressureSensorTargetValue - give arg types
+  void  SetPressureSensorTargetValue();
+..\HARDWARE\GPIO\GPIO.h(176): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(19): warning:  #1295-D: Deprecated declaration HMI_USART_Init - give arg types
+  void HMI_USART_Init();
+..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\APP_Params.h(149): warning:  #1295-D: Deprecated declaration LoadSystemParams - give arg types
+  void LoadSystemParams();
+..\APP\APP_Params.h(150): warning:  #1295-D: Deprecated declaration SaveSystemParams - give arg types
+  void SaveSystemParams();
+..\APP\APP_Params.h(151): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\APP.c(333): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  											 Sys_RT_Status.CH_Dispensing_Status[CHx].HEAD_COUNT_DOWN=Sys_Params.Channel_Param[CHx].Head_Time*100.0;
+..\APP\APP.c(334): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  											 Sys_RT_Status.CH_Dispensing_Status[CHx].DISPENSING_COUNT_DOWN=Sys_Params.Channel_Param[CHx].Timer*100.0;
+..\APP\APP.c(335): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  											 Sys_RT_Status.CH_Dispensing_Status[CHx].TAIL_COUNT_DOWN=Sys_Params.Channel_Param[CHx].Tail_Time*100.0;
+..\APP\APP.c: 12 warnings, 0 errors
+linking...
+Program Size: Code=31832 RO-data=908 RW-data=412 ZI-data=31732  
+FromELF: creating hex file...
+After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o .\Objects\RC28MCU.bin .\Objects\ISADII.axf
+".\Objects\ISADII.axf": Error: Q0122E: Could not open file '.\Objects\ISADII.axf': No such file or directory
+Finished: 0 information, 0 warning and 1 error messages.
+"..\OBJ\ISADII.axf" - 0 Error(s), 12 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.14.0.pack
+                Keil.STM32F4xx_DFP.2.14.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_ISADII
+  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
