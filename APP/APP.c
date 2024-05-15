@@ -1112,7 +1112,7 @@ static void vCommunicationResolving_Task(void *pvParameters)
 								Sys_RT_Status.pressure_disable_Mode = POWER_OFF;
 							}
 							//sprintf((char *)Respond, "{\"W_PRESSURE_STATUS\": {\"PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "true" : "false");
-							sprintf((char *)Respond, "{\"W_PRESSURE_STATUS\": {\"W_PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+							sprintf((char *)Respond, "{\"W_PRESSURE_STATUS\": {\"W_PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "\"true\"" :  "\"false\"");
 							_Recv_Finish = 1;
 						}
 					}
@@ -1130,7 +1130,7 @@ static void vCommunicationResolving_Task(void *pvParameters)
 								Sys_RT_Status.TEACH = POWER_OFF;
 							}
 							//sprintf((char *)Respond, "{\"W_PRESSURE_STATUS\": {\"PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "true" : "false");
-							sprintf((char *)Respond, "{\"W_TEACH\": {\"TEACH\":%s}}", Sys_RT_Status.TEACH == POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+							sprintf((char *)Respond, "{\"W_TEACH\": {\"TEACH\":%s}}", Sys_RT_Status.TEACH == POWER_ON ? "\"true\"" :  "\"false\"");
 							_Recv_Finish = 1;
 						}
 					}
@@ -1148,7 +1148,7 @@ static void vCommunicationResolving_Task(void *pvParameters)
 								Sys_RT_Status.SHOT = POWER_OFF;
 							}
 							//sprintf((char *)Respond, "{\"W_PRESSURE_STATUS\": {\"PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "true" : "false");
-							sprintf((char *)Respond, "{\"W_SHOT\": {\"SHOT\":%s}}", Sys_RT_Status.SHOT == POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+							sprintf((char *)Respond, "{\"W_SHOT\": {\"SHOT\":%s}}", Sys_RT_Status.SHOT == POWER_ON ? "\"true\"" :  "\"false\"");
 							_Recv_Finish = 1;
 						}
 					}
@@ -1166,7 +1166,7 @@ static void vCommunicationResolving_Task(void *pvParameters)
 								Sys_RT_Status.PURGE = POWER_OFF;
 							}
 							//sprintf((char *)Respond, "{\"W_PRESSURE_STATUS\": {\"PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "true" : "false");
-							sprintf((char *)Respond, "{\"W_PURGE\": {\"PURGE\":%s}}", Sys_RT_Status.PURGE == POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+							sprintf((char *)Respond, "{\"W_PURGE\": {\"PURGE\":%s}}", Sys_RT_Status.PURGE == POWER_ON ? "\"true\"" :  "\"false\"");
 							_Recv_Finish = 1;
 						}
 					}
@@ -1318,29 +1318,29 @@ static void vCommunicationResolving_Task(void *pvParameters)
 //Sys_RT_Status.SUPERAD = POWER_ON;	Sys_RT_Status.TEACH = POWER_ON;Sys_RT_Status.SHOT = POWER_ON;Sys_RT_Status.PURGE=POWER_OFF;
 					else if (strcmp(token, "R_SUPERAD") == 0)
 					{
-						sprintf((char *)Respond, "{\"R_SUPERAD\": {\"SUPERAD\":%s}}",Sys_RT_Status.SUPERAD== POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+						sprintf((char *)Respond, "{\"R_SUPERAD\": {\"SUPERAD\":%s}}",Sys_RT_Status.SUPERAD== POWER_ON ? "\"true\"" :  "\"false\"");
 						_Recv_Finish = 1;
 					}
 					else if (strcmp(token, "R_TEACH") == 0)
 					{
-						sprintf((char *)Respond, "{\"R_TEACH\": {\"TEACH\":%s}}",Sys_RT_Status.TEACH== POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+						sprintf((char *)Respond, "{\"R_TEACH\": {\"TEACH\":%s}}",Sys_RT_Status.TEACH== POWER_ON ? "\"true\"" :  "\"false\"");
 						_Recv_Finish = 1;
 					}
 					else if (strcmp(token, "R_SHOT") == 0)
 					{
-						sprintf((char *)Respond, "{\"R_SHOT\": {\"SHOT\":%s}}",Sys_RT_Status.SHOT == POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+						sprintf((char *)Respond, "{\"R_SHOT\": {\"SHOT\":%s}}",Sys_RT_Status.SHOT == POWER_ON ? "\"true\"" :  "\"false\"");
 						_Recv_Finish = 1;
 					}
 					else if (strcmp(token, "R_PURGE") == 0)
 					{
-						sprintf((char *)Respond, "{\"R_PURGE\": {\"PURGE\":%s}}",Sys_RT_Status.PURGE== POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+						sprintf((char *)Respond, "{\"R_PURGE\": {\"PURGE\":%s}}",Sys_RT_Status.PURGE== POWER_ON ? "\"true\"" :  "\"false\"");
 						_Recv_Finish = 1;
 					}
 
 					else if (strcmp(token, "R_PRESSURE_STATUS") == 0)
 					{
 
-						sprintf((char *)Respond, "{\"R_PRESSURE_STATUS\": {\"R_PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "\"POWER_ON\"" :  "\"POWER_OFF\"");
+						sprintf((char *)Respond, "{\"R_PRESSURE_STATUS\": {\"R_PRESSURE_STATUS\":%s}}", Sys_RT_Status.pressure_disable_Mode == POWER_ON ? "\"true\"" :  "\"false\"");
 						// sprintf((char *)Respond,"PRESSURE %2f",Sys_RT_Status.RT_Pressure);
 						_Recv_Finish = 1;
 					}

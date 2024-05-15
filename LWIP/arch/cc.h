@@ -86,5 +86,4 @@ extern void Exit_Critical(uint32_t lev);
 #ifndef LWIP_PLATFORM_DIAG
 #define LWIP_PLATFORM_DIAG(x) do {printf x;} while(0)
 #endif
-
 #endif /* __CC_H__ */
