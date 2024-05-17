@@ -38,6 +38,14 @@
 ..\obj\lan8720.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\lan8720.o: ..\FWLIB\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h
 ..\obj\lan8720.o: ..\FWLIB\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth_conf.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\lan8720.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\lan8720.o: ..\SYSTEM\usart\usart.h
 ..\obj\lan8720.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\lan8720.o: ..\SYSTEM\delay\delay.h

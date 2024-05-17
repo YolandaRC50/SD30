@@ -59,3 +59,11 @@
 ..\obj\lwip_sys.o: ..\LWIP\arch/sys_arch.h
 ..\obj\lwip_sys.o: ..\FreeRTOS\include\queue.h
 ..\obj\lwip_sys.o: ..\FreeRTOS\include\semphr.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\lwip_sys.o: ..\FreeRTOS\Core\sys_debug.h

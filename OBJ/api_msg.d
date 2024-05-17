@@ -62,6 +62,14 @@
 ..\obj\api_msg.o: ..\LWIP\arch/sys_arch.h
 ..\obj\api_msg.o: ..\FreeRTOS\include\queue.h
 ..\obj\api_msg.o: ..\FreeRTOS\include\semphr.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\api_msg.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\api_msg.o: ..\LWIP\lwip-1.4.1\src\include\ipv4\lwip/igmp.h
 ..\obj\api_msg.o: ..\LWIP\lwip-1.4.1\src\include\lwip/netif.h
 ..\obj\api_msg.o: ..\LWIP\lwip-1.4.1\src\include\lwip/pbuf.h

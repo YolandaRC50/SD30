@@ -65,5 +65,13 @@
 ..\obj\app_params.o: ..\LWIP\arch/sys_arch.h
 ..\obj\app_params.o: ..\FreeRTOS\include\queue.h
 ..\obj\app_params.o: ..\FreeRTOS\include\semphr.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\app_params.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\app_params.o: ..\HARDWARE\Flash\w25qxx.h
 ..\obj\app_params.o: ..\HARDWARE\Flash\Flash_SPI.h

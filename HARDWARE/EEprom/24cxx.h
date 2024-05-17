@@ -1,6 +1,7 @@
 #ifndef __24CXX_H
 #define __24CXX_H
 #include "EEP_I2C.h"
+#include "sys_timer.h"
 
 #define AT24C01		127
 #define AT24C02		255

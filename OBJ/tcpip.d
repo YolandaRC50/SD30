@@ -59,6 +59,14 @@
 ..\obj\tcpip.o: ..\LWIP\arch/sys_arch.h
 ..\obj\tcpip.o: ..\FreeRTOS\include\queue.h
 ..\obj\tcpip.o: ..\FreeRTOS\include\semphr.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\tcpip.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\tcpip.o: ..\LWIP\lwip-1.4.1\src\include\lwip/memp.h
 ..\obj\tcpip.o: ..\LWIP\lwip-1.4.1\src\include\lwip/memp_std.h
 ..\obj\tcpip.o: ..\LWIP\lwip-1.4.1\src\include\lwip/mem.h

@@ -64,6 +64,14 @@
 ..\obj\init.o: ..\LWIP\arch/sys_arch.h
 ..\obj\init.o: ..\FreeRTOS\include\queue.h
 ..\obj\init.o: ..\FreeRTOS\include\semphr.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\init.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\init.o: ..\LWIP\lwip-1.4.1\src\include\lwip/pbuf.h
 ..\obj\init.o: ..\LWIP\lwip-1.4.1\src\include\lwip/netif.h
 ..\obj\init.o: ..\LWIP\lwip-1.4.1\src\include\ipv4\lwip/ip_addr.h

@@ -53,11 +53,11 @@ void AT24CXX_WriteOneByte(u16 WriteAddr,u8 DataToWrite)
 		EEP_I2C_Send_Byte(WriteAddr>>8);//发送高地址	  
 	}else EEP_I2C_Send_Byte(0XA0+((WriteAddr/256)<<1));   //发送器件地址0XA0,写数据 	 
 	EEP_I2C_Wait_Ack();	   
-    EEP_I2C_Send_Byte(WriteAddr%256);   //发送低地址
+  EEP_I2C_Send_Byte(WriteAddr%256);   //发送低地址
 	EEP_I2C_Wait_Ack(); 	 										  		   
 	EEP_I2C_Send_Byte(DataToWrite);     //发送字节							   
 	EEP_I2C_Wait_Ack();  		    	   
-    EEP_I2C_Stop();//产生一个停止条件 
+  EEP_I2C_Stop();//产生一个停止条件 
 	delay_ms(10);	 
 }
 //在AT24CXX里面的指定地址开始写入长度为Len的数据

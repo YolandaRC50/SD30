@@ -360,22 +360,22 @@
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_RT_Status.System_RTC.year</ItemText>
+          <ItemText>Sys_Params.Dispense_Param.Pro_mode</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_RT_Status.System_RTC.year_BCD</ItemText>
+          <ItemText>Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_RT_Status.System_RTC.month</ItemText>
+          <ItemText>Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_RT_Status.System_RTC.month_BCD</ItemText>
+          <ItemText>Sys_RT_Status.System_Status</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
@@ -515,7 +515,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\APP\Main.c</PathWithFileName>
@@ -691,7 +691,7 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>13</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\HARDWARE\EEprom\24cxx.c</PathWithFileName>
@@ -759,7 +759,7 @@
 
   <Group>
     <GroupName>HARDWARE\GPIO</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -787,7 +787,7 @@
       <GroupNumber>8</GroupNumber>
       <FileNumber>19</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\HARDWARE\ETHERNET\lan8720.c</PathWithFileName>
@@ -831,7 +831,7 @@
       <GroupNumber>9</GroupNumber>
       <FileNumber>22</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\HARDWARE\COMM\bsp_ethernet.c</PathWithFileName>

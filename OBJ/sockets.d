@@ -66,6 +66,14 @@
 ..\obj\sockets.o: ..\LWIP\arch/sys_arch.h
 ..\obj\sockets.o: ..\FreeRTOS\include\queue.h
 ..\obj\sockets.o: ..\FreeRTOS\include\semphr.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\sockets.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\sockets.o: ..\LWIP\lwip-1.4.1\src\include\ipv4\lwip/igmp.h
 ..\obj\sockets.o: ..\LWIP\lwip-1.4.1\src\include\lwip/netif.h
 ..\obj\sockets.o: ..\LWIP\lwip-1.4.1\src\include\lwip/tcp.h

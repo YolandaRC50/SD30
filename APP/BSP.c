@@ -22,8 +22,8 @@ void BSP_Init(void)
 	BELL_Init();
 	LED_Init();
 
-	AT24CXX_Init();
-	W25QXX_Init();
+	AT24CXX_Init();   //初始化存储芯片M24C04
+	W25QXX_Init();    //初始化flashW25Q128
 	//ResetAllParams();
 	//SaveSystemParams();
 	

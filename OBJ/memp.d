@@ -75,6 +75,14 @@
 ..\obj\memp.o: ..\LWIP\arch/sys_arch.h
 ..\obj\memp.o: ..\FreeRTOS\include\queue.h
 ..\obj\memp.o: ..\FreeRTOS\include\semphr.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\memp.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\memp.o: ..\LWIP\lwip-1.4.1\src\include\lwip/api_msg.h
 ..\obj\memp.o: ..\LWIP\lwip-1.4.1\src\include\lwip/tcpip.h
 ..\obj\memp.o: ..\LWIP\lwip-1.4.1\src\include\lwip/netifapi.h

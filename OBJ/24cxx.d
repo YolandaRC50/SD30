@@ -36,3 +36,11 @@
 ..\obj\24cxx.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\24cxx.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\24cxx.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\24cxx.o: ..\FreeRTOS\Core\sys_debug.h

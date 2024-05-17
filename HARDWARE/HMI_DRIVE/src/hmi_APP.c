@@ -440,14 +440,15 @@ void UpdateUI(void)
 		current_screen_id=_SCREEN_PRESSURE_ALM_DLG_16;
 		GPIO_OUT[DO_PRESSURE_ALARM].GPIO_Value=POWER_ON; //20240408
 	}
-	if((Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)&&(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]==0))
+	/*if((Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)&&(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]==0))
 	{
 		Sys_Params.Dispense_Param.Pro_mode = POWER_OFF;
 	}
 	if((Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)&&(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]>0))
 	{
+		//Sys_RT_Status.System_Status
 		Sys_Params.Dispense_Param.Pro_mode = POWER_ON;
-	}
+	}*/
 	Comm_Mode=Sys_Params.IOT_Params.Commication_Mode;
 			
 	switch(current_screen_id)
@@ -2305,14 +2306,14 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 						{
 							Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]=fabsf(value_double);
 							SetTextValue2Float(current_screen_id,8,Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]);
-							if(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]==0)
+							/*if(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]==0)
 							{
 								Sys_Params.Dispense_Param.Pro_mode = POWER_OFF;
 							}
 							else
 							{
 								Sys_Params.Dispense_Param.Pro_mode = POWER_ON;
-							}							
+							}*/							
 						}
 						else
 						{

@@ -35,6 +35,7 @@
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "semphr.h"
+#include "sys_timer.h"
 
 #ifdef SYS_ARCH_GLOBALS
 #define SYS_ARCH_EXT

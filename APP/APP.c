@@ -698,6 +698,19 @@ static void vStatus_Task(void *pvParameters)
 			{
 				GPIO_OUT[DO_DISPENSING].GPIO_Value = POWER_OFF;
 			}
+			if(Sys_RT_Status.Dispensing_Step==DISPENSING_STOP&&Sys_Params.Dispense_Param.Run_Mode_Params==PRO_NO)
+			{
+				if(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]==0)
+				{
+					Sys_Params.Dispense_Param.Pro_mode = POWER_OFF;
+				}
+				else
+				{
+					Sys_Params.Dispense_Param.Pro_mode = POWER_ON;
+				}				
+			}
+
+		
 			
 			vTaskDelay(100);
 			/*if(r_com==1)

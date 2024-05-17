@@ -65,5 +65,13 @@
 ..\obj\pbuf.o: ..\LWIP\arch/sys_arch.h
 ..\obj\pbuf.o: ..\FreeRTOS\include\queue.h
 ..\obj\pbuf.o: ..\FreeRTOS\include\semphr.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\pbuf.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\pbuf.o: ..\LWIP\arch/perf.h
 ..\obj\pbuf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

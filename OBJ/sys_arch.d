@@ -60,6 +60,14 @@
 ..\obj\sys_arch.o: ..\LWIP\arch/sys_arch.h
 ..\obj\sys_arch.o: ..\FreeRTOS\include\queue.h
 ..\obj\sys_arch.o: ..\FreeRTOS\include\semphr.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_config.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_type.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_timer.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_wdg.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_core.h
+..\obj\sys_arch.o: ..\FreeRTOS\Core\sys_debug.h
 ..\obj\sys_arch.o: ..\LWIP\lwip-1.4.1\src\include\lwip/mem.h
 ..\obj\sys_arch.o: ..\SYSTEM\delay\delay.h
 ..\obj\sys_arch.o: ..\MALLOC\malloc.h

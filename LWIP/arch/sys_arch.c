@@ -45,6 +45,7 @@
 #include "malloc.h"
 
 
+
 const uint32_t NullMessage;
 
 //创建一个消息邮箱
