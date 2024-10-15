@@ -146,8 +146,8 @@ void ResetAllParams()
 			Sys_Params.save_pro_buffer[i][4] = 0.0f;
 			Sys_Params.save_pro_buffer[i][5] = 0.0f;
 	}
-	Sys_Params.Dispense_Param.shot_num=10.0f;
-	Sys_Params.Dispense_Param.sys_count=10.0f;
+//	Sys_Params.Dispense_Param.shot_num=10.0f;
+//	Sys_Params.Dispense_Param.sys_count=10.0f;
 	Sys_Params.Dispense_Param.program_number=10.0f;
 	
 	
@@ -242,8 +242,8 @@ void LoadSystemParams()
 		}
 		
 		
-		Sys_Params.Dispense_Param.shot_num=Byte_to_int(m_Params_Buffer,&m_Index);
-		Sys_Params.Dispense_Param.sys_count=Byte_to_int(m_Params_Buffer,&m_Index);
+//		Sys_Params.Dispense_Param.shot_num=Byte_to_int(m_Params_Buffer,&m_Index);
+//		Sys_Params.Dispense_Param.sys_count=Byte_to_int(m_Params_Buffer,&m_Index);
 		Sys_Params.Dispense_Param.program_number=Byte_to_int(m_Params_Buffer,&m_Index);
 			
 		Sys_Params.Pressure_Param.TargetPreessure=Byte_to_Float(m_Params_Buffer,&m_Index); 
@@ -361,8 +361,8 @@ void SaveSystemParams()
 			Int_to_Byte(Sys_Params.save_pro_buffer[i][4],m_Params_Buffer,&m_Index);
 			Int_to_Byte(Sys_Params.save_pro_buffer[i][5],m_Params_Buffer,&m_Index);
 	}
-	Int_to_Byte(Sys_Params.Dispense_Param.shot_num,m_Params_Buffer,&m_Index);
-	Int_to_Byte(Sys_Params.Dispense_Param.sys_count,m_Params_Buffer,&m_Index);
+//	Int_to_Byte(Sys_Params.Dispense_Param.shot_num,m_Params_Buffer,&m_Index);
+//	Int_to_Byte(Sys_Params.Dispense_Param.sys_count,m_Params_Buffer,&m_Index);
 	Int_to_Byte(Sys_Params.Dispense_Param.program_number,m_Params_Buffer,&m_Index);
 
 	

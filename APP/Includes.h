@@ -1,11 +1,11 @@
 #ifndef _INCLUDES_H_
 #define _INCLUDES_H_
-#define VERSION "1.1.4"
+#define VERSION "1.1.7"
 #define IDH "2974793"
 #define PD "Pulse EQ SD30 Precision Syringe Dispenser"
 #define BAR_PSI_TR 14.5102f
 #define mmHg_PSI_TR 51.7149f
-#define  pressurerange 1.05f
+//#define  pressurerange 1.05f
  
 
 //±ê×¼¿â

@@ -8,12 +8,12 @@
 //USBH_HOST  USB_Host;
 //USB_OTG_CORE_HANDLE  USB_OTG_Core;
 //static uint8_t update_en = 0;                                                          //更新标记
-uint8_t timer_tick_last_update = 0;                                                 //上一次更新的时间 
+//uint8_t timer_tick_last_update = 0;                                                 //上一次更新的时间 
 uint8_t StartLoop=0;
 uint8_t m_LoadLoopMax=0x05;
 uint8_t LoadSuccess=0; 
-uint64_t m_Timer_10MS=0;
-uint64_t m_Timer_100MS=0;
+//uint64_t m_Timer_10MS=0;
+//uint64_t m_Timer_100MS=0;
 uint64_t m_Timer_1S=0;
 POWER_STATUS m_Pressure_Alm_Status=POWER_OFF; 
 POWER_STATUS m_Last_Pressure_Enable_Status=POWER_OFF;
@@ -41,12 +41,11 @@ uint16_t m_Last_DI_Run_Stop_Status_Counter =0;
 uint8_t  m_WIFI_Connect_Mark=0;
 float  temping1 = 0,temping2=0;
 POWER_STATUS m_Wifi_Search_Success=POWER_OFF;  
-uint64_t add_timer = 0;
+//uint64_t add_timer = 0;
 char m_WIFI_Ecn[5][10]={"OPEN","WEP","WPA","WPA2","WPA_WPA2"};
 char testtcp[4]={"test"};
-char dispenseflag = 0;
-char numflag = 0;
-char save_flag=0;
+
+//char save_flag=0;
 char cycle_flag = 0;
 char pro_flag = 0;
 //int da=0,db=0,dc=0,dd=0,de=0,df=0,dg=0,dh=0,di=0;
@@ -98,6 +97,9 @@ void TIM4_IRQHandler_10MS(void)
 			switch(Sys_Params.Dispense_Param.Run_Mode_Params)
 			{
 				case PRO_NO:
+				{
+					break;					
+				}
 					
 				case CYCLE:								
 				{
@@ -134,8 +136,8 @@ void TIM4_IRQHandler_10MS(void)
 							{
 								if(Sys_RT_Status.DISPENSING_COUNT_DOWN == 0)
 								{
-										Sys_Params.Dispense_Param.shot_num++;
-										Sys_Params.Dispense_Param.sys_count++;
+//										Sys_Params.Dispense_Param.shot_num++;
+//										Sys_Params.Dispense_Param.sys_count++;
 								}
 								Sys_RT_Status.Dispensing_Step = DISPENSING_STOP;
 								Sys_RT_Status.SHOT = POWER_OFF;
@@ -152,8 +154,8 @@ void TIM4_IRQHandler_10MS(void)
 							{
 								if(temping1 == 0)
 								{
-										Sys_Params.Dispense_Param.shot_num++;
-										Sys_Params.Dispense_Param.sys_count++;
+//										Sys_Params.Dispense_Param.shot_num++;
+//										Sys_Params.Dispense_Param.sys_count++;
 								}
 								Sys_RT_Status.Dispensing_Step = DISPENSING_INTER;
 								temping2 = Sys_RT_Status.Intertime_COUNT_DOWN;
@@ -176,8 +178,8 @@ void TIM4_IRQHandler_10MS(void)
 					{
 						if(temping1 == 0)
 						{
-								Sys_Params.Dispense_Param.shot_num++;
-								Sys_Params.Dispense_Param.sys_count++;
+//								Sys_Params.Dispense_Param.shot_num++;
+	//							Sys_Params.Dispense_Param.sys_count++;
 						}
 						Sys_RT_Status.Dispensing_Step = DISPENSING_INTER;
 						temping2 = Sys_RT_Status.Intertime_COUNT_DOWN;
@@ -193,8 +195,8 @@ void TIM4_IRQHandler_10MS(void)
 				{				
 					if(Sys_RT_Status.DISPENSING_COUNT_UP==0)
 					{						
-						Sys_Params.Dispense_Param.shot_num++;
-						Sys_Params.Dispense_Param.sys_count++;
+//						Sys_Params.Dispense_Param.shot_num++;
+//						Sys_Params.Dispense_Param.sys_count++;
 					}
 					Sys_RT_Status.DISPENSING_COUNT_UP++;
 					break;
@@ -209,8 +211,8 @@ void TIM4_IRQHandler_10MS(void)
 						{
 							if(Sys_RT_Status.DISPENSING_COUNT_DOWN == 0)
 							{
-									Sys_Params.Dispense_Param.shot_num++;
-									Sys_Params.Dispense_Param.sys_count++;
+//									Sys_Params.Dispense_Param.shot_num++;
+//								Sys_Params.Dispense_Param.sys_count++;
 							}
 							Sys_RT_Status.Dispensing_Step = DISPENSING_STOP;
 							Sys_RT_Status.SHOT = POWER_OFF;
@@ -273,40 +275,32 @@ void TIM4_IRQHandler_10MS(void)
 	}
 }
 
-//void TIMx_IRQHandler_100MS(void)
-//{
-	//m_Timer_100MS++;    //导致死机
-//}
 void TIMx_IRQHandler_1S(void)
 {
 	m_Timer_1S++;//导致死机
-	
-	//Sys_RT_Status.System_RTC.second++;
 	if(m_Timer_1S>=60)
 	{
 		m_Timer_1S=0;
-	  //Sys_RT_Status.System_RTC.minute++;
 		m_Get_HMI_RTC_MARK=1;
 		intertest = 1;
 		
 	} 
-	if(m_Timer_1S>=3600)
-	{
-		save_flag = 1;
-	}
 		
 }
 void Dispensing_Logic(void)
 {
 				if(Sys_RT_Status.System_Option_Mode==STOP_MODE)    //PURGE不能用脚踏开关
 				{ 
-					if(Sys_RT_Status.PURGE == POWER_ON||CHECK_PURGE_IO_STATUS==POWER_ON)
+					if(Sys_RT_Status.pressure_disable_Mode==POWER_ON) 
 					{
-						DISPENSING_RUN();											
-					}
-					else
-					{
-						DISPENSING_STOP();
+						if(Sys_RT_Status.PURGE == POWER_ON||CHECK_PURGE_IO_STATUS==POWER_ON)
+						{
+							DISPENSING_RUN();											
+						}
+						else
+						{
+							DISPENSING_STOP();
+						}
 					}
 						
 
@@ -642,29 +636,41 @@ static void vStatus_Task(void *pvParameters)
 				}
 			}
 			if(Sys_RT_Status.pressure_disable_Mode==POWER_ON)
-			{
-				if((Sys_RT_Status.RT_Pressure<=(Sys_Params.Pressure_Param.TargetPreessure+Sys_Params.Pressure_Param.TargetPreessure_Range))&&(Sys_RT_Status.RT_Pressure>=(Sys_Params.Pressure_Param.TargetPreessure-Sys_Params.Pressure_Param.TargetPreessure_Range)))
+			{				
+				if((Sys_RT_Status.RT_Pressure<=(Sys_Params.Pressure_Param.TargetPreessure*(1+Sys_Params.Pressure_Param.TargetPreessure_Range/100)))&&(Sys_RT_Status.RT_Pressure>=(Sys_Params.Pressure_Param.TargetPreessure*(1-Sys_Params.Pressure_Param.TargetPreessure_Range/100))))
 				{
-					m_Pressure_Building_Timer = 0;
-					//GPIO_OUT[DO_PRESSURE_ALARM].GPIO_Value=POWER_OFF;   //20240408
+					m_Pressure_Building_Timer = 0;																																		
 				}
 				else
 				{
-					
-					if(m_Pressure_Building_Timer<=(m_Pressure_Building_Timer_Max*5))
+					if(Sys_Params.Pressure_Param.TargetPreessure==0)  //压力等于零时不报警
 					{
-						m_Pressure_Building_Timer++;  
+						if(Sys_RT_Status.RT_Pressure<=0.03)      
+						{
+							m_Pressure_Building_Timer = 0;	
+						}
 					}
-					//if(Sys_RT_Status.Dispensing_Step == DISPENSING_STOP)
-					//{
-					if(m_Pressure_Building_Timer>(m_Pressure_Building_Timer_Max*5))
+					else
 					{
-						Pressure_Display_Enable=POWER_ON;                 //压力报警信号
-						//GPIO_OUT[DO_PRESSURE_ALARM].GPIO_Value=POWER_ON;				//20240408			
-						Sys_RT_Status.pressure_disable_Mode=POWER_OFF;
+						if(m_Pressure_Building_Timer<=(m_Pressure_Building_Timer_Max*5))
+						{
+							m_Pressure_Building_Timer++;  
+						}
+						if(m_Pressure_Building_Timer>(m_Pressure_Building_Timer_Max*5))
+						{
+							Pressure_Display_Enable=POWER_ON;                 //压力报警信号	
+							Sys_RT_Status.pressure_disable_Mode=POWER_OFF;
+							if(Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)
+							{
+								pro_flag = 0;
+							}
+							if(Sys_Params.Dispense_Param.Run_Mode_Params == CYCLE)
+							{
+								cycle_flag = 0;
+							}							
+						}
 					}
-					//}
-					
+															
 				}
 			}
 			else
@@ -709,9 +715,7 @@ static void vStatus_Task(void *pvParameters)
 					Sys_Params.Dispense_Param.Pro_mode = POWER_ON;
 				}				
 			}
-
-		
-			
+					
 			vTaskDelay(100);
 			/*if(r_com==1)
 			{
@@ -719,17 +723,14 @@ static void vStatus_Task(void *pvParameters)
 				r_com=0;
 				
 			}*/
-			if(save_flag ==1)
-			{
-				save_flag = 0;
-				SaveSystemParams();
-				
-			}
+			//if(save_flag ==1)
+			//{
+			//	save_flag = 0;
+			//	SaveSystemParams();
+			//	
+			//}
 
-		}
-
-
-		
+		}		
 }
 
 void Pointer_stringcat(char *str1,const char *str2)
@@ -1318,16 +1319,16 @@ static void vCommunicationResolving_Task(void *pvParameters)
 						_Recv_Finish = 1;
 					}
 					//						Sys_RT_Status.PURGE=POWER_ON;Sys_Params.Dispense_Param.shot_num++;Sys_Params.Dispense_Param.sys_count++;
-					else if (strcmp(token, "R_SHOT_NUM") == 0)
-					{
-						sprintf((char *)Respond, "{\"R_SHOT_NUM\": {\"SHOT_NUM\":%d}}",Sys_Params.Dispense_Param.shot_num);
-						_Recv_Finish = 1;
-					}
-					else if (strcmp(token, "R_SYS_COUNT") == 0)
-					{
-						sprintf((char *)Respond, "{\"R_SYS_COUNT\": {\"SYS_COUNT\":%d}}",Sys_Params.Dispense_Param.sys_count);
-						_Recv_Finish = 1;
-					}
+//					else if (strcmp(token, "R_SHOT_NUM") == 0)
+//					{
+//						sprintf((char *)Respond, "{\"R_SHOT_NUM\": {\"SHOT_NUM\":%d}}",Sys_Params.Dispense_Param.shot_num);
+//						_Recv_Finish = 1;
+	//				}
+	//				else if (strcmp(token, "R_SYS_COUNT") == 0)
+			//		{
+				//		sprintf((char *)Respond, "{\"R_SYS_COUNT\": {\"SYS_COUNT\":%d}}",Sys_Params.Dispense_Param.sys_count);
+				//		_Recv_Finish = 1;
+				//	}
 //Sys_RT_Status.SUPERAD = POWER_ON;	Sys_RT_Status.TEACH = POWER_ON;Sys_RT_Status.SHOT = POWER_ON;Sys_RT_Status.PURGE=POWER_OFF;
 					else if (strcmp(token, "R_SUPERAD") == 0)
 					{
@@ -1411,7 +1412,7 @@ static void vGPIO_Task(void *pvParameters)
 				{
 					m_Last_DI_Pressure_Enable_Status_Counter++;
 					if(m_Last_DI_Pressure_Enable_Status_Counter>=8)
-					{
+					{ 
 						if(Sys_RT_Status.pressure_disable_Mode!=POWER_ON)
 						{
 							Sys_RT_Status.pressure_disable_Mode=POWER_ON;
@@ -1420,8 +1421,7 @@ static void vGPIO_Task(void *pvParameters)
 						{ 
 							Sys_RT_Status.pressure_disable_Mode=POWER_OFF;
 							
-						}
-						
+						}												
 						m_Last_DI_Pressure_Enable_Status=CHECK_PRESSURE_ENABLE;
 						m_Last_DI_Pressure_Enable_Status_Counter=0;
 					}
@@ -1436,7 +1436,7 @@ static void vGPIO_Task(void *pvParameters)
 				{
 					m_Last_DI_Run_Stop_Status_Counter++;
 					if(m_Last_DI_Run_Stop_Status_Counter>=8)
-					{
+					{							
 						if(Sys_RT_Status.System_Option_Mode != AUTORUN_MODE)
 						{
 							Sys_RT_Status.System_Option_Mode = AUTORUN_MODE;
@@ -1446,8 +1446,9 @@ static void vGPIO_Task(void *pvParameters)
 						{
 							Sys_RT_Status.System_Option_Mode = STOP_MODE; 
 						}
-					m_Last_DI_Run_Stop_Status=CHECK_RUN_STOP;
-					m_Last_DI_Run_Stop_Status_Counter=0;
+							
+						m_Last_DI_Run_Stop_Status=CHECK_RUN_STOP;
+						m_Last_DI_Run_Stop_Status_Counter=0;
 					}
 				}
 				else
@@ -1480,7 +1481,13 @@ static void vGPIO_Task(void *pvParameters)
 						}										
 					}
 					m_Last_Pro_Manual_Status=DISPENSING_IO_STATUS();
-				}																																
+				}
+/*				
+				if(Sys_RT_Status.Dispensing_Step == DISPENSING_STATUS || Sys_RT_Status.Dispensing_Step == DISPENSING_INTER)
+				{
+					CHECK_PRESSURE_ENABLE=POWER_OFF;
+					CHECK_RUN_STOP=	POWER_OFF;				
+				}		*/		
 			  vTaskDelay(1);
 			
 		}

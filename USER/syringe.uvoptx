@@ -150,7 +150,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U383404157415303030303032 -O239 -SF4000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO131090 -TC10000000 -TT10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F407ZG$Flash\STM32F4xx_1024.FLM)</Name>
+          <Name>-U1F2A0007A115303030303032 -O238 -SF4000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO131090 -TC10000000 -TT10000000 -TP21 -TDS8004 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F407ZG$Flash\STM32F4xx_1024.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -163,42 +163,42 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Pressure_Display_Enable</ItemText>
+          <ItemText>Sys_RT_Status.RT_IOT_Status.Send_Buffer</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_RT_Status.RT_Pressure</ItemText>
+          <ItemText>Sys_RT_Status.RT_IOT_Status.WIFI_Status.Status_Step</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_Params.Pressure_Param.TargetPreessure</ItemText>
+          <ItemText>Sys_RT_Status.RT_IOT_Status.Recive_Buffer</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_RT_Status.RT_AN_Pressure</ItemText>
+          <ItemText>_Delta_AN_Vacuum</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_2_Value</ItemText>
+          <ItemText>Sys_RT_Status.RT_Vacuum</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_1_Value</ItemText>
+          <ItemText>Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_2_Value</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_Params.Pressure_Param.Calibration_RT_Param.RT_2_Value</ItemText>
+          <ItemText>sum</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Sys_Params.Pressure_Param.Calibration_RT_Param.RT_1_Value</ItemText>
+          <ItemText>m_Timer_1S</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
@@ -353,29 +353,34 @@
         <Ww>
           <count>38</count>
           <WinNumber>1</WinNumber>
-          <ItemText>_OUT_PUT_AN</ItemText>
+          <ItemText>token</ItemText>
+        </Ww>
+        <Ww>
+          <count>39</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Respond</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_Params.Dispense_Param.Pro_mode</ItemText>
+          <ItemText>Sys_RT_Status.System_Status</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]</ItemText>
+          <ItemText>current_screen_id</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]</ItemText>
+          <ItemText>*token</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>2</WinNumber>
-          <ItemText>Sys_RT_Status.System_Status</ItemText>
+          <ItemText>Respond</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
@@ -563,7 +568,7 @@
 
   <Group>
     <GroupName>APP\Prameters</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -727,7 +732,7 @@
 
   <Group>
     <GroupName>HARDWARE\SENSOR</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -779,7 +784,7 @@
 
   <Group>
     <GroupName>HARDWARE\ETHERNET</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -787,7 +792,7 @@
       <GroupNumber>8</GroupNumber>
       <FileNumber>19</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\HARDWARE\ETHERNET\lan8720.c</PathWithFileName>
@@ -799,7 +804,7 @@
 
   <Group>
     <GroupName>HARDWARE\COMM</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -855,7 +860,7 @@
 
   <Group>
     <GroupName>SYSTEM</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -899,7 +904,7 @@
 
   <Group>
     <GroupName>CORE</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1119,7 +1124,7 @@
 
   <Group>
     <GroupName>MALLOC</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1127,7 +1132,7 @@
       <GroupNumber>13</GroupNumber>
       <FileNumber>44</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\MALLOC\malloc.c</PathWithFileName>
@@ -1139,7 +1144,7 @@
 
   <Group>
     <GroupName>FreeRTOS_CORE</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1315,7 +1320,7 @@
 
   <Group>
     <GroupName>Shell</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1687,7 +1692,7 @@
 
   <Group>
     <GroupName>LWIP-API</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

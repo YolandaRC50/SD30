@@ -177,8 +177,8 @@ typedef enum __RUN_MODE
 		POWER_STATUS Pro_mode;	
 		float Dis_Timer;
 		float Inter_timer;
-		uint32_t shot_num;
-		uint32_t sys_count;
+//		uint32_t shot_num;
+//		uint32_t sys_count;
 		uint8_t program_number;
 		} Dispense_Params_Item;
 

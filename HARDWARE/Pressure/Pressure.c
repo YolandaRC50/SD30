@@ -301,7 +301,7 @@ void filter(void)
 		sum_1+=sum;
 		Sys_RT_Status.RT_AN_Pressure=sum_1/BUFFER_LEN;
 		
-		Sys_RT_Status.RT_Pressure=(Sys_RT_Status.RT_AN_Pressure-Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_1_Value)
+		Sys_RT_Status.RT_Pressure=(Sys_RT_Status.RT_AN_Pressure-((Sys_Params.Pressure_Param.Calibration_RT_Param.RT_2_Value*Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_1_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.RT_1_Value*Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_2_Value)/(Sys_Params.Pressure_Param.Calibration_RT_Param.RT_2_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.RT_1_Value)))
 		/((Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_2_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_1_Value+1.00f)                   //
 		/(Sys_Params.Pressure_Param.Calibration_RT_Param.RT_2_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.RT_1_Value));                     //  实际的压力
 	 	 
@@ -323,8 +323,9 @@ void filterVacuum(void)
 		AD_Value_Buffer_Vacuum[0]=sum_Vacuum;
 		sum_1_Vacuum+=sum_Vacuum;
 		Sys_RT_Status.RT_AN_Vacuum=sum_1_Vacuum/BUFFER_LEN;
-		
-		Sys_RT_Status.RT_Vacuum=(Sys_RT_Status.RT_AN_Vacuum-Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_3_Value)
+		float bb_vacuum = (Sys_Params.Pressure_Param.Calibration_RT_Param.RT_4_Value*Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_3_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.RT_3_Value*Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_4_Value)
+			/(Sys_Params.Pressure_Param.Calibration_RT_Param.RT_4_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.RT_3_Value);
+		Sys_RT_Status.RT_Vacuum=(Sys_RT_Status.RT_AN_Vacuum-bb_vacuum)
 		/((Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_4_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_3_Value+1.00f)
 		/(Sys_Params.Pressure_Param.Calibration_RT_Param.RT_4_Value-Sys_Params.Pressure_Param.Calibration_RT_Param.RT_3_Value));
 	 	 
@@ -375,7 +376,9 @@ float getOutputPercent(void)
 	float _MeasureRange=Sys_Params.Pressure_Param.Calibration_Set_Param.RT_2_Value-Sys_Params.Pressure_Param.Calibration_Set_Param.RT_1_Value;
 	float _unitPreBar=/*417.0142;*/(_Max_AN-_Min_AN)/(_MeasureRange); 
 	
-	float _Delta_AN=_Min_AN+((_DeltaPressure)*_unitPreBar);
+//	float _Delta_AN=_Min_AN+((_DeltaPressure)*_unitPreBar);
+	float _Delta_AN=(Sys_Params.Pressure_Param.Calibration_Set_Param.RT_2_Value*_Min_AN-_Max_AN*Sys_Params.Pressure_Param.Calibration_Set_Param.RT_1_Value)/(Sys_Params.Pressure_Param.Calibration_Set_Param.RT_2_Value-Sys_Params.Pressure_Param.Calibration_Set_Param.RT_1_Value)+((_DeltaPressure)*_unitPreBar);
+	
 	
 	//	float _Cal_1_AN=909;
 	//	float _Cal_2_AN=2273;
@@ -438,10 +441,16 @@ float getOutputPercent_Vacuum(void)
 	//float _DeltaPressure_Vacuumtemp =Sys_Params.Pressure_Param.Targetvacuum;//-Sys_RT_Status.RT_Pressure;
 	float _DeltaPressure_Vacuum = 8.7224*Sys_Params.Pressure_Param.Targetvacuum +0.4392-0.5704*Sys_Params.Pressure_Param.Targetvacuum*Sys_Params.Pressure_Param.Targetvacuum; //负压转换为正压
 	//y = -0.5704x2 + 8.7224x + 0.4392
+	
+	if(Sys_Params.Pressure_Param.Targetvacuum ==0)
+	{
+		_DeltaPressure_Vacuum =0;
+	}
+
 	float _MeasureRange_Vacuum=Sys_Params.Pressure_Param.Calibration_Set_Param.RT_4_Value-Sys_Params.Pressure_Param.Calibration_Set_Param.RT_3_Value;
 	float _unitPrePsi_Vacuum=/*417.0142;*/(_Max_AN_Vacuum-_Min_AN_Vacuum)/(_MeasureRange_Vacuum); //  y=kx+Analog_3_Value  y是比例阀的输出电压，x是比例阀的压力
-	
-	float _Delta_AN_Vacuum=_Min_AN_Vacuum+((_DeltaPressure_Vacuum)*_unitPrePsi_Vacuum);
+	float kk=(Sys_Params.Pressure_Param.Calibration_Set_Param.RT_4_Value*_Min_AN_Vacuum-Sys_Params.Pressure_Param.Calibration_Set_Param.RT_3_Value*_Max_AN_Vacuum)/_MeasureRange_Vacuum;
+	float _Delta_AN_Vacuum=kk+((_DeltaPressure_Vacuum)*_unitPrePsi_Vacuum);
 	
 	_OUT_PUT_AN_Vacuum=_Delta_AN_Vacuum;
 }

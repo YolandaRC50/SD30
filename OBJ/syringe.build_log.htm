@@ -107,6 +107,116 @@ compiling Main.c...
 ..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\APP\Main.c: 8 warnings, 0 errors
+compiling APP.c...
+..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
+  POWER_STATUS Check_Dispensing_IO_Status();
+..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\APP.c(332): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  													Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]*100.0;
+..\APP\APP.c(365): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  													Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]*100.0;
+..\APP\APP.c(367): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  													Sys_RT_Status.Intertime_COUNT_DOWN=Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]*100.0;	
+..\APP\APP.c(419): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  											Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.Dispense_Param.Dis_Timer*100.0;
+..\APP\APP.c(421): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  											Sys_RT_Status.Intertime_COUNT_DOWN=Sys_Params.Dispense_Param.Inter_timer*100.0;	
+..\APP\APP.c(505): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  													Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.Dispense_Param.Dis_Timer*100.0;
+..\APP\APP.c(528): warning:  #188-D: enumerated type mixed with another type
+  				m_Last_DI_Dispensing_Status=DISPENSING_IO_STATUS()||Sys_RT_Status.SHOT;
+..\APP\APP.c(648): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  						if(Sys_RT_Status.RT_Pressure<=0.03)      
+..\APP\APP.c(769): warning:  #550-D: variable "_Recv_Finish"  was set but never used
+  				uint8_t _Recv_Finish = 0;
+..\APP\APP.c(1425): warning:  #188-D: enumerated type mixed with another type
+  						m_Last_DI_Pressure_Enable_Status=CHECK_PRESSURE_ENABLE;
+..\APP\APP.c(1431): warning:  #188-D: enumerated type mixed with another type
+  					m_Last_DI_Pressure_Enable_Status=CHECK_PRESSURE_ENABLE;
+..\APP\APP.c(1450): warning:  #188-D: enumerated type mixed with another type
+  						m_Last_DI_Run_Stop_Status=CHECK_RUN_STOP;
+..\APP\APP.c(1456): warning:  #188-D: enumerated type mixed with another type
+  					m_Last_DI_Run_Stop_Status=CHECK_RUN_STOP;
+..\APP\APP.c(1615): warning:  #177-D: variable "i"  was declared but never referenced
+  	uint16_t i=0;
+..\APP\APP.c(1620): warning:  #177-D: variable "r_event"  was declared but never referenced
+  	EventBits_t r_event;  /* 定义一个事件接收变量 */ 
+..\APP\APP.c(1621): warning:  #177-D: variable "__LoadFirst"  was declared but never referenced
+  	POWER_STATUS __LoadFirst=POWER_OFF;
+..\APP\APP.c(2048): warning:  #111-D: statement is unreachable
+  							break;
+..\APP\APP.c(57): warning:  #177-D: variable "Swtmr1_Handle"  was declared but never referenced
+  static TimerHandle_t Swtmr1_Handle =NULL;  
+..\APP\APP.c: 26 warnings, 0 errors
+compiling hmi_APP.c...
+..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
+  POWER_STATUS Check_Dispensing_IO_Status();
+..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(30): warning:  #1295-D: Deprecated declaration Float_to_Byte - give arg types
+  extern int Float_to_Byte();
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1777): warning:  #177-D: variable "value"  was declared but never referenced
+  			int32_t value = 0; 
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1778): warning:  #177-D: variable "value_double"  was declared but never referenced
+  			float value_double = 0;
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1980): warning:  #188-D: enumerated type mixed with another type
+  						Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1981): warning:  #188-D: enumerated type mixed with another type
+  						Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1995): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1996): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2020): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2021): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2032): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2033): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2118): warning:  #188-D: enumerated type mixed with another type
+  						Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2119): warning:  #188-D: enumerated type mixed with another type
+  						Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2351): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2352): warning:  #188-D: enumerated type mixed with another type
+  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2472): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_1_Value=(value_double+(0.005));   
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2481): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_2_Value=(value_double+(0.005));
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2499): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_3_Value=(value_double+(0.005));
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2508): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_4_Value=(value_double+(0.005));
+..\HARDWARE\HMI_DRIVE\src\hmi_APP.c: 27 warnings, 0 errors
 compiling hmi_driver.c...
 ..\HARDWARE\HMI_DRIVE\src\hmi_driver.c(75): warning:  #223-D: function "HMI_SendSingleChar" declared implicitly
   		TX_8(*str);
@@ -475,114 +585,6 @@ compiling hmi_driver.c...
 ..\HARDWARE\HMI_DRIVE\src\hmi_driver.c(1094): warning:  #1-D: last line of file ends without a newline
   }
 ..\HARDWARE\HMI_DRIVE\src\hmi_driver.c: 183 warnings, 0 errors
-compiling APP.c...
-..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
-  POWER_STATUS Check_Dispensing_IO_Status();
-..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\APP\APP.c(338): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  													Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]*100.0;
-..\APP\APP.c(371): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  													Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]*100.0;
-..\APP\APP.c(373): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  													Sys_RT_Status.Intertime_COUNT_DOWN=Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]*100.0;	
-..\APP\APP.c(425): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  											Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.Dispense_Param.Dis_Timer*100.0;
-..\APP\APP.c(427): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  											Sys_RT_Status.Intertime_COUNT_DOWN=Sys_Params.Dispense_Param.Inter_timer*100.0;	
-..\APP\APP.c(511): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  													Sys_RT_Status.DISPENSING_COUNT_DOWN=Sys_Params.Dispense_Param.Dis_Timer*100.0;
-..\APP\APP.c(534): warning:  #188-D: enumerated type mixed with another type
-  				m_Last_DI_Dispensing_Status=DISPENSING_IO_STATUS()||Sys_RT_Status.SHOT;
-..\APP\APP.c(768): warning:  #550-D: variable "_Recv_Finish"  was set but never used
-  				uint8_t _Recv_Finish = 0;
-..\APP\APP.c(1425): warning:  #188-D: enumerated type mixed with another type
-  						m_Last_DI_Pressure_Enable_Status=CHECK_PRESSURE_ENABLE;
-..\APP\APP.c(1431): warning:  #188-D: enumerated type mixed with another type
-  					m_Last_DI_Pressure_Enable_Status=CHECK_PRESSURE_ENABLE;
-..\APP\APP.c(1449): warning:  #188-D: enumerated type mixed with another type
-  					m_Last_DI_Run_Stop_Status=CHECK_RUN_STOP;
-..\APP\APP.c(1455): warning:  #188-D: enumerated type mixed with another type
-  					m_Last_DI_Run_Stop_Status=CHECK_RUN_STOP;
-..\APP\APP.c(1608): warning:  #177-D: variable "i"  was declared but never referenced
-  	uint16_t i=0;
-..\APP\APP.c(1613): warning:  #177-D: variable "r_event"  was declared but never referenced
-  	EventBits_t r_event;  /* 定义一个事件接收变量 */ 
-..\APP\APP.c(1614): warning:  #177-D: variable "__LoadFirst"  was declared but never referenced
-  	POWER_STATUS __LoadFirst=POWER_OFF;
-..\APP\APP.c(2041): warning:  #111-D: statement is unreachable
-  							break;
-..\APP\APP.c(58): warning:  #177-D: variable "Swtmr1_Handle"  was declared but never referenced
-  static TimerHandle_t Swtmr1_Handle =NULL;  
-..\APP\APP.c: 25 warnings, 0 errors
-compiling hmi_APP.c...
-..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
-  POWER_STATUS Check_Dispensing_IO_Status();
-..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(29): warning:  #1295-D: Deprecated declaration Float_to_Byte - give arg types
-  extern int Float_to_Byte();
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1703): warning:  #177-D: variable "value"  was declared but never referenced
-  			int32_t value = 0; 
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1704): warning:  #177-D: variable "value_double"  was declared but never referenced
-  			float value_double = 0;
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1906): warning:  #188-D: enumerated type mixed with another type
-  						Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1907): warning:  #188-D: enumerated type mixed with another type
-  						Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1921): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1922): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1946): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1947): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1958): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(1959): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2275): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2276): warning:  #188-D: enumerated type mixed with another type
-  							Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2396): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_1_Value=(value_double+(0.005));   
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2405): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_2_Value=(value_double+(0.005));
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2423): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_3_Value=(value_double+(0.005));
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(2432): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_4_Value=(value_double+(0.005));
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(12): warning:  #177-D: variable "test_value"  was declared but never referenced
-  static int32_t test_value = 0;//测试值
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c(14): warning:  #177-D: variable "Level_Vol_Enable_Counter"  was declared but never referenced
-  static uint8_t Level_Vol_Enable_Counter=0;	
-..\HARDWARE\HMI_DRIVE\src\hmi_APP.c: 27 warnings, 0 errors
 compiling Bell.c...
 ..\HARDWARE\Other\Bell\Bell.c(24): warning:  #111-D: statement is unreachable
   	if(cmd)
@@ -594,6 +596,8 @@ compiling w25qxx.c...
 ..\HARDWARE\Flash\w25qxx.c(258): warning:  #223-D: function "delay_us" declared implicitly
       delay_us(3);                               //等待TRES1
 ..\HARDWARE\Flash\w25qxx.c: 2 warnings, 0 errors
+compiling 24cxx.c...
+compiling EEP_I2C.c...
 compiling hmi_usart.c...
 ..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -614,8 +618,6 @@ compiling hmi_usart.c...
 ..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\HARDWARE\HMI_DRIVE\src\hmi_usart.c: 9 warnings, 0 errors
-compiling 24cxx.c...
-compiling EEP_I2C.c...
 compiling Flash_spi.c...
 compiling lan8720.c...
 ..\HARDWARE\ETHERNET\lan8720.c(266): warning:  #1-D: last line of file ends without a newline
@@ -641,6 +643,52 @@ compiling DHTxx.c...
 ..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\HARDWARE\TemperatureHumidity\DHTxx.c: 9 warnings, 0 errors
+compiling bsp_esp8266.c...
+..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
+  POWER_STATUS Check_Dispensing_IO_Status();
+..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\COMM\bsp_esp8266.c: 8 warnings, 0 errors
+compiling Pressure.c...
+..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
+  POWER_STATUS Check_Dispensing_IO_Status();
+..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\Pressure\Pressure.c(399): warning:  #940-D: missing return statement at end of non-void function "getOutputPercent" 
+  }
+..\HARDWARE\Pressure\Pressure.c(442): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	float _DeltaPressure_Vacuum = 8.7224*Sys_Params.Pressure_Param.Targetvacuum +0.4392-0.5704*Sys_Params.Pressure_Param.Targetvacuum*Sys_Params.Pressure_Param.Targetvacuum; //负压转换为正压
+..\HARDWARE\Pressure\Pressure.c(442): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  	float _DeltaPressure_Vacuum = 8.7224*Sys_Params.Pressure_Param.Targetvacuum +0.4392-0.5704*Sys_Params.Pressure_Param.Targetvacuum*Sys_Params.Pressure_Param.Targetvacuum; //负压转换为正压
+..\HARDWARE\Pressure\Pressure.c(456): warning:  #940-D: missing return statement at end of non-void function "getOutputPercent_Vacuum" 
+  }
+..\HARDWARE\Pressure\Pressure.c(488): warning:  #1-D: last line of file ends without a newline
+   
+..\HARDWARE\Pressure\Pressure.c: 13 warnings, 0 errors
 compiling GPIO.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -663,53 +711,6 @@ compiling GPIO.c...
 ..\HARDWARE\GPIO\GPIO.c(228): warning:  #188-D: enumerated type mixed with another type
   		_Power_Status=(GPIO_IN[DI_FOOT_SWITCH].GPIO_Value)||(GPIO_IN[DI_DISPENSE_SWITCH].GPIO_Value);
 ..\HARDWARE\GPIO\GPIO.c: 10 warnings, 0 errors
-compiling Pressure.c...
-..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
-  POWER_STATUS Check_Dispensing_IO_Status();
-..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\Pressure\Pressure.c(396): warning:  #940-D: missing return statement at end of non-void function "getOutputPercent" 
-  }
-..\HARDWARE\Pressure\Pressure.c(439): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	float _DeltaPressure_Vacuum = 8.7224*Sys_Params.Pressure_Param.Targetvacuum +0.4392-0.5704*Sys_Params.Pressure_Param.Targetvacuum*Sys_Params.Pressure_Param.Targetvacuum; //负压转换为正压
-..\HARDWARE\Pressure\Pressure.c(439): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	float _DeltaPressure_Vacuum = 8.7224*Sys_Params.Pressure_Param.Targetvacuum +0.4392-0.5704*Sys_Params.Pressure_Param.Targetvacuum*Sys_Params.Pressure_Param.Targetvacuum; //负压转换为正压
-..\HARDWARE\Pressure\Pressure.c(447): warning:  #940-D: missing return statement at end of non-void function "getOutputPercent_Vacuum" 
-  }
-..\HARDWARE\Pressure\Pressure.c(479): warning:  #1-D: last line of file ends without a newline
-   
-..\HARDWARE\Pressure\Pressure.c: 13 warnings, 0 errors
-compiling bsp_esp8266.c...
-..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\APP\APP_Params.h(520): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\TemperatureHumidity\DHTxx.h(27): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\GPIO\GPIO.h(261): warning:  #1295-D: Deprecated declaration Check_Dispensing_IO_Status - give arg types
-  POWER_STATUS Check_Dispensing_IO_Status();
-..\HARDWARE\GPIO\GPIO.h(263): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\HMI_DRIVE\inc\hmi_usart.h(21): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\HARDWARE\COMM\bsp_esp8266.c: 8 warnings, 0 errors
-assembling startup_stm32f40_41xxx.s...
 compiling bsp_hc05.c...
 ..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -728,6 +729,7 @@ compiling bsp_hc05.c...
 ..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\HARDWARE\COMM\bsp_hc05.c: 8 warnings, 0 errors
+assembling startup_stm32f40_41xxx.s...
 compiling bsp_ethernet.c...
 ..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -747,6 +749,15 @@ compiling bsp_ethernet.c...
   #endif
 ..\HARDWARE\COMM\bsp_ethernet.c: 8 warnings, 0 errors
 compiling sys.c...
+compiling Timer.c...
+..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\SYSTEM\Timer\Timer.c(89): warning:  #1-D: last line of file ends without a newline
+  }
+..\SYSTEM\Timer\Timer.c: 2 warnings, 0 errors
+compiling misc.c...
+compiling delay.c...
+compiling stm32f4xx_gpio.c...
 compiling bsp_comm.c...
 ..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -771,55 +782,58 @@ compiling bsp_comm.c...
 ..\HARDWARE\COMM\bsp_comm.c(501): warning:  #177-D: variable "retry"  was declared but never referenced
       u8 retry=0;
 ..\HARDWARE\COMM\bsp_comm.c: 11 warnings, 0 errors
-compiling Timer.c...
-..\SYSTEM\Timer\timer.h(20): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\SYSTEM\Timer\Timer.c(89): warning:  #1-D: last line of file ends without a newline
-  }
-..\SYSTEM\Timer\Timer.c: 2 warnings, 0 errors
-compiling delay.c...
-compiling misc.c...
-compiling stm32f4xx_gpio.c...
 compiling stm32f4xx_rcc.c...
 compiling stm32f4xx_syscfg.c...
 compiling stm32f4xx_spi.c...
 compiling stm32f4xx_i2c.c...
-compiling stm32f4xx_adc.c...
 compiling stm32f4xx_usart.c...
+compiling stm32f4xx_adc.c...
 compiling stm32f4xx_dac.c...
-compiling stm32f4xx_dcmi.c...
-compiling stm32f4xx_iwdg.c...
+compiling stm32f4xx_sdio.c...
 compiling stm32f4xx_dma.c...
 compiling stm32f4xx_exti.c...
-compiling stm32f4xx_sdio.c...
+compiling stm32f4xx_iwdg.c...
+compiling stm32f4xx_dcmi.c...
 compiling stm32f4xx_tim.c...
-compiling malloc.c...
 compiling stm32f4x7_eth.c...
+compiling malloc.c...
 compiling list.c...
 compiling croutine.c...
-compiling event_groups.c...
 compiling timers.c...
+compiling event_groups.c...
+compiling queue.c...
+compiling tasks.c...
+compiling shell_cmd_list.c...
+compiling shell.c...
+compiling shell_ext.c...
 compiling sys_wdg.c...
 ..\FreeRTOS\Core\sys_wdg.c(77): warning:  #1-D: last line of file ends without a newline
   /************************************文件结束*********************************/
 ..\FreeRTOS\Core\sys_wdg.c: 1 warning, 0 errors
-compiling queue.c...
-compiling tasks.c...
-compiling shell_cmd_list.c...
-compiling shell_ext.c...
-compiling shell.c...
 compiling stm32f4xx_it.c...
 compiling system_stm32f4xx.c...
 compiling heap_4.c...
 compiling port.c...
-compiling def.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\def.c: 1 warning, 0 errors
 compiling etharp.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\netif\etharp.c: 1 warning, 0 errors
+compiling dhcp.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\dhcp.c: 1 warning, 0 errors
+compiling dns.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\dns.c: 1 warning, 0 errors
+compiling def.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\def.c: 1 warning, 0 errors
+compiling lwip_sys.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\lwip_sys.c: 1 warning, 0 errors
 compiling ethernetif.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -838,30 +852,14 @@ compiling ethernetif.c...
 ..\APP\App_Comm.h(12): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\LWIP\lwip-1.4.1\src\netif\ethernetif.c: 8 warnings, 0 errors
-compiling dhcp.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\dhcp.c: 1 warning, 0 errors
-compiling dns.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\dns.c: 1 warning, 0 errors
-compiling lwip_sys.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\lwip_sys.c: 1 warning, 0 errors
-compiling mem.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\mem.c: 1 warning, 0 errors
 compiling init.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\init.c: 1 warning, 0 errors
-compiling memp.c...
+compiling mem.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\memp.c: 1 warning, 0 errors
+..\LWIP\lwip-1.4.1\src\core\mem.c: 1 warning, 0 errors
 compiling stats.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -870,46 +868,34 @@ compiling raw.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\raw.c: 1 warning, 0 errors
-compiling netif.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\netif.c: 1 warning, 0 errors
 compiling pbuf.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\pbuf.c: 1 warning, 0 errors
-compiling tcp_in.c...
+compiling netif.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\tcp_in.c: 1 warning, 0 errors
+..\LWIP\lwip-1.4.1\src\core\netif.c: 1 warning, 0 errors
+compiling memp.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\memp.c: 1 warning, 0 errors
 compiling tcp.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\tcp.c: 1 warning, 0 errors
-compiling tcp_out.c...
+compiling tcp_in.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\tcp_out.c(845): warning:  #550-D: variable "tcphdr"  was set but never used
-    struct tcp_hdr *tcphdr;
-..\LWIP\lwip-1.4.1\src\core\tcp_out.c(1367): warning:  #550-D: variable "tcphdr"  was set but never used
-    struct tcp_hdr *tcphdr;
-..\LWIP\lwip-1.4.1\src\core\tcp_out.c: 3 warnings, 0 errors
+..\LWIP\lwip-1.4.1\src\core\tcp_in.c: 1 warning, 0 errors
 compiling autoip.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\ipv4\autoip.c: 1 warning, 0 errors
-compiling timers.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\timers.c: 1 warning, 0 errors
 compiling igmp.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\ipv4\igmp.c: 1 warning, 0 errors
-compiling icmp.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\core\ipv4\icmp.c: 1 warning, 0 errors
 compiling udp.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -918,6 +904,26 @@ compiling inet.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\ipv4\inet.c: 1 warning, 0 errors
+compiling icmp.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\ipv4\icmp.c: 1 warning, 0 errors
+compiling timers.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\timers.c: 1 warning, 0 errors
+compiling tcp_out.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\core\tcp_out.c(845): warning:  #550-D: variable "tcphdr"  was set but never used
+    struct tcp_hdr *tcphdr;
+..\LWIP\lwip-1.4.1\src\core\tcp_out.c(1367): warning:  #550-D: variable "tcphdr"  was set but never used
+    struct tcp_hdr *tcphdr;
+..\LWIP\lwip-1.4.1\src\core\tcp_out.c: 3 warnings, 0 errors
+compiling err.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\api\err.c: 1 warning, 0 errors
 compiling inet_chksum.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -930,22 +936,14 @@ compiling ip.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\ipv4\ip.c: 1 warning, 0 errors
-compiling err.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\api\err.c: 1 warning, 0 errors
-compiling api_lib.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\api\api_lib.c: 1 warning, 0 errors
-compiling netbuf.c...
-..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
-  #endif /* __CC_H__ */
-..\LWIP\lwip-1.4.1\src\api\netbuf.c: 1 warning, 0 errors
 compiling ip_frag.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\core\ipv4\ip_frag.c: 1 warning, 0 errors
+compiling api_lib.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\api\api_lib.c: 1 warning, 0 errors
 compiling api_msg.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -962,6 +960,10 @@ compiling sys_arch.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
 ..\LWIP\arch\sys_arch.c: 1 warning, 0 errors
+compiling netbuf.c...
+..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CC_H__ */
+..\LWIP\lwip-1.4.1\src\api\netbuf.c: 1 warning, 0 errors
 compiling tcpip.c...
 ..\LWIP\arch/cc.h(89): warning:  #1-D: last line of file ends without a newline
   #endif /* __CC_H__ */
@@ -971,10 +973,10 @@ compiling sockets.c...
   #endif /* __CC_H__ */
 ..\LWIP\lwip-1.4.1\src\api\sockets.c: 1 warning, 0 errors
 linking...
-Program Size: Code=106584 RO-data=1088 RW-data=2280 ZI-data=834704  
+Program Size: Code=106812 RO-data=1088 RW-data=2232 ZI-data=834688  
 FromELF: creating hex file...
 After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o ..\BIN\syringe.bin ..\OBJ\syringe.axf
-"..\OBJ\syringe.axf" - 0 Error(s), 397 Warning(s).
+"..\OBJ\syringe.axf" - 0 Error(s), 398 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -987,7 +989,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:35
+Build Time Elapsed:  00:00:30
 </pre>
 </body>
 </html>

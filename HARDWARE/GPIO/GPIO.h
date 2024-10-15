@@ -173,7 +173,7 @@
  
 #define PRESSURE_ALARM(Power) 			GPIO_OUT[DO_PRESSURE_ALARM].GPIO_Value=Power
 	
-#define CARTRIDGE_LEVEL(Status) 		Cartridge_Level_Status(Status)
+//#define CARTRIDGE_LEVEL(Status) 		Cartridge_Level_Status(Status)
 #define DO_PRESSURE_SENSOR_POWER_ON GPIO_OUT[DO_PRESSURE_POWER].GPIO_Value=POWER_ON    //yolanda
 #define DO_VACUUM_SENSOR_POWER_ON   GPIO_OUT[DO_VACUUM_POWER].GPIO_Value=POWER_ON     //yolanda
 #define DO_BACK_VALVE_STATUS(Power) 				GPIO_OUT[DO_BACK_VALVE].GPIO_Value=Power

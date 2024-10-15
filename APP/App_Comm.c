@@ -27,8 +27,7 @@ void communication_cfg_to_device()
 void Communication_Param_Init()
 {
 	communication_cfg_to_device();
-	
-	Sys_RT_Status.RT_IOT_Status.Comm_Status_Data.p_in_u8 = Sys_RT_Status.RT_IOT_Status.Recive_Buffer;
+		Sys_RT_Status.RT_IOT_Status.Comm_Status_Data.p_in_u8 = Sys_RT_Status.RT_IOT_Status.Recive_Buffer;
 	Sys_RT_Status.RT_IOT_Status.Comm_Status_Data.p_out_u8=Sys_RT_Status.RT_IOT_Status.Send_Buffer;
 	switch(Sys_Params.IOT_Params.Commication_Mode)
 	{ 

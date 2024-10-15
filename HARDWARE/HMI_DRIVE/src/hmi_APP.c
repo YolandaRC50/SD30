@@ -1,20 +1,20 @@
 #include "HMI_App.h" 
 #include "includes.h" 
 
-#define UI_STYLE_BW			0//黑色
+//#define UI_STYLE_BW			0//黑色
 uint16_t current_screen_id=0;
-uint8_t Pump_AccButtonView=0;
+//uint8_t Pump_AccButtonView=0;
 	
-uint16_t BackICONIndex=40;
-uint16_t StatusICONIndex=50;
+//uint16_t BackICONIndex=40;
+//uint16_t StatusICONIndex=50;
 void SetRTCTime(uint8_t second,uint8_t minute,uint8_t hour,uint8_t day,uint8_t week,uint8_t month,uint8_t year);
 uint8_t cmd_buffer[CMD_MAX_SIZE];//指令缓存
-static int32_t test_value = 0;//测试值
+//static int32_t test_value = 0;//测试值
   
-static uint8_t Level_Vol_Enable_Counter=0;	
+//static uint8_t Level_Vol_Enable_Counter=0;	
 extern POWER_STATUS m_Last_DI_Dispensing_Status;
-uint8_t Auto_AT=0;
-uint8_t Temp_Alm_Counter_Trigger=0;
+//uint8_t Auto_AT=0;
+//uint8_t Temp_Alm_Counter_Trigger=0;
 uint8_t settime_flag=0;
 uint8_t cont_flag=0;
 
@@ -25,7 +25,8 @@ uint16_t _Debug_UI_Open_Count =0;
 IOT_COMMICATION_MODE_ENUM Comm_Mode=ETHERNET_MODE;
 uint8_t pron;
 //extern float save_pro_buffer[PRONUM][2];
-
+extern char cycle_flag;
+extern char pro_flag;
 extern int Float_to_Byte();
 extern uint8_t mcuidbuffer[25];
 float attmp;
@@ -126,7 +127,21 @@ void NotifyScreen(uint16_t screen_id)
 				if(Sys_RT_Status.pressure_disable_Mode == POWER_OFF )
 				{
 					Sys_RT_Status.System_Option_Mode=STOP_MODE; 
-				} 
+				}
+				
+				if(Sys_RT_Status.Dispensing_Step == DISPENSING_STOP)
+				{
+					if(Sys_RT_Status.PURGE==POWER_ON)
+					{
+						SetControlEnable(current_screen_id,10,0);
+						SetControlEnable(current_screen_id,11,0);
+					}
+					else
+					{
+						SetControlEnable(current_screen_id,10,1);
+						SetControlEnable(current_screen_id,11,1);
+					}								
+				}	
 
 				SetButtonValue(current_screen_id,10,Sys_RT_Status.pressure_disable_Mode);
 				SetButtonValue(current_screen_id,11,Sys_RT_Status.System_Option_Mode);
@@ -167,7 +182,7 @@ void NotifyScreen(uint16_t screen_id)
 					SetTextValueFloat(current_screen_id,15, (Sys_RT_Status.Temperature_RT*1.8f+32.0f));  //温度华氏
 				}					
 				SetTextValueFloat(current_screen_id,16, Sys_RT_Status.Humidity_RT);     //湿度
-				SetTextValueint32_t(current_screen_id,17, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数			
+//				SetTextValueint32_t(current_screen_id,17, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数			
 
 				
 				SetButtonValue(current_screen_id,12,Sys_RT_Status.SHOT);
@@ -192,6 +207,11 @@ void NotifyScreen(uint16_t screen_id)
 					SetTextValue2Float(current_screen_id,5, Sys_Params.Dispense_Param.Dis_Timer);
 					SetTextValue2Float(current_screen_id,6, Sys_Params.Dispense_Param.Inter_timer);
 				}
+				if(Sys_RT_Status.Dispensing_Step == DISPENSING_STATUS || Sys_RT_Status.Dispensing_Step == DISPENSING_INTER)
+				{
+					SetControlEnable(current_screen_id,10,0);
+					SetControlEnable(current_screen_id,11,0);								
+				}	
 
 			break;
 		} 
@@ -238,7 +258,7 @@ void NotifyScreen(uint16_t screen_id)
 		{
 			//SetTextValueint32_t(current_screen_id,1,Sys_Params.Dispense_Param.sys_count);
 			AnimationPlayFrame(current_screen_id,15,Sys_Params.IOT_Params.Commication_Mode);    	//显示有限网络
-			SetTextValueint32_t(current_screen_id,5,Sys_Params.Dispense_Param.sys_count);
+//			SetTextValueint32_t(current_screen_id,5,Sys_Params.Dispense_Param.sys_count);
 			break;
 		} 
 		case _SCREEN_SYSTEMINI_10:
@@ -342,7 +362,7 @@ void NotifyScreen(uint16_t screen_id)
 				SetTextValueFloat(current_screen_id,21, (Sys_RT_Status.Temperature_RT*1.8f+32.0f));  //温度华氏
 			}					
 			SetTextValueFloat(current_screen_id,22, Sys_RT_Status.Humidity_RT);     //湿度
-			SetTextValueint32_t(current_screen_id,23, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数		
+//			SetTextValueint32_t(current_screen_id,23, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数		
 			if(Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)
 			{
 				SetTextValue0Float(current_screen_id,5, Sys_Params.Dispense_Param.program_number);
@@ -474,20 +494,48 @@ void UpdateUI(void)
 				}
 				else
 				{
-					SetControlEnable(current_screen_id,11,POWER_ON);
+					if(Sys_RT_Status.Dispensing_Step == DISPENSING_STATUS || Sys_RT_Status.Dispensing_Step == DISPENSING_INTER)
+					{
+						SetControlEnable(current_screen_id,11,0);
+					}
+					else
+					{
+						SetControlEnable(current_screen_id,11,1);
+						
+					}
 				}
-
-									
+				if(Sys_RT_Status.Dispensing_Step == DISPENSING_STOP)
+				{
+					if(Sys_RT_Status.PURGE==POWER_ON)
+					{
+						SetControlEnable(current_screen_id,10,0);
+						SetControlEnable(current_screen_id,11,0);
+					}
+					else
+					{
+						SetControlEnable(current_screen_id,10,1);
+						SetControlEnable(current_screen_id,11,1);
+					}					
+				}									
 				SetButtonValue(current_screen_id,10,Sys_RT_Status.pressure_disable_Mode);
 				SetButtonValue(current_screen_id,11,Sys_RT_Status.System_Option_Mode);
 
 				if(Sys_RT_Status.System_Option_Mode==AUTORUN_MODE)
 				{				
-					SetControlEnable(current_screen_id,12,POWER_ON);
+					if((pro_flag ==1)||(DISPENSING_IO_STATUS() == POWER_ON)||(cycle_flag ==1))
+					{
+						SetControlEnable(current_screen_id,12,0);
+					}
+					else
+					{
+						SetControlEnable(current_screen_id,12,1);
+					}
 				}
 				else
 				{			
-					SetControlEnable(current_screen_id,12,POWER_OFF);
+
+					SetControlEnable(current_screen_id,12,0);
+					
 				}
 				if((Sys_RT_Status.System_Option_Mode==STOP_MODE)&&(Sys_RT_Status.pressure_disable_Mode == POWER_ON))
 				{
@@ -525,23 +573,17 @@ void UpdateUI(void)
 					SetTextValueFloat(current_screen_id,15, (Sys_RT_Status.Temperature_RT*1.8f+32.0f));  //温度华氏
 				}					
 				SetTextValueFloat(current_screen_id,16, Sys_RT_Status.Humidity_RT);     //湿度
-				SetTextValueint32_t(current_screen_id,17, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数	
-				
-			 
-				//SetButtonValue(current_screen_id,4,Sys_RT_Status.reset);
-				//SetButtonValue(current_screen_id,5,Sys_RT_Status.admin);
+
 				
 				SetButtonValue(current_screen_id,12,Sys_RT_Status.SHOT);
 				SetButtonValue(current_screen_id,13,Sys_RT_Status.PURGE);
-				//Sys_RT_Status.pressure_disable_Mode=POWER_ON;
+
 							
 				if(Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)
 				{
 					SetTextValue0Float(current_screen_id,7, Sys_Params.Dispense_Param.program_number);
 					SetTextValue2Float(current_screen_id,5, Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][0]);
 					SetTextValue2Float(current_screen_id,6, Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][1]);
-					//SetTextValue2Float(current_screen_id,2, Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][2]);
-					//SetTextValue2Float(current_screen_id,3, Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][3]);
 					AnimationPlayFrame(current_screen_id,21, Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4]);    //显示正压单位
 					AnimationPlayFrame(current_screen_id,22, Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5]);    //显示负压单位
 					if(Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4]==BAR)    
@@ -609,8 +651,20 @@ void UpdateUI(void)
 					SetTextValue2Float(current_screen_id,5, Sys_Params.Dispense_Param.Dis_Timer);
 					SetTextValue2Float(current_screen_id,6, Sys_Params.Dispense_Param.Inter_timer);
 				}
-
-				//SetButtonValue(current_screen_id,9,Sys_RT_Status.TEACH);
+				if(Sys_RT_Status.Dispensing_Step == DISPENSING_STATUS || Sys_RT_Status.Dispensing_Step == DISPENSING_INTER)
+				{
+					SetControlEnable(current_screen_id,10,0);
+					SetControlEnable(current_screen_id,11,0);	
+					if((pro_flag ==1)||(DISPENSING_IO_STATUS() == POWER_ON)||(cycle_flag ==1))
+					{
+						SetControlEnable(current_screen_id,12,0);
+					}
+					else
+					{
+						SetControlEnable(current_screen_id,12,1);
+					}					
+				}	
+			
 									
 				break;
 		}
@@ -708,26 +762,26 @@ void UpdateUI(void)
 			
 			AnimationPlayFrame(current_screen_id,18, Sys_RT_Status.System_Status);    //显示点胶状态	
 			AnimationPlayFrame(current_screen_id,15,Sys_Params.IOT_Params.Commication_Mode);    	//显示有限网络
-			SetTextValueint32_t(current_screen_id,5,Sys_Params.Dispense_Param.sys_count);
-			SetTextValueint32_t(current_screen_id,6,Sys_Params.Dispense_Param.shot_num);
-			AnimationPlayFrame(current_screen_id,21, Sys_Params.Pressure_Param.Pressure_Unit);    //显示正压单位
+//			SetTextValueint32_t(current_screen_id,5,Sys_Params.Dispense_Param.sys_count);
+//			SetTextValueint32_t(current_screen_id,6,Sys_Params.Dispense_Param.shot_num);
+			//AnimationPlayFrame(current_screen_id,21, Sys_Params.Pressure_Param.Pressure_Unit);    //显示正压单位
 			SetTextValueint8_t(current_screen_id,7,Sys_RT_Status.System_RTC.year);
 			SetTextValueint8_t(current_screen_id,8,Sys_RT_Status.System_RTC.month);
 			SetTextValueint8_t(current_screen_id,9,Sys_RT_Status.System_RTC.day);
 			SetTextValueint8_t(current_screen_id,10,Sys_RT_Status.System_RTC.hour);
 			SetTextValueint8_t(current_screen_id,11,Sys_RT_Status.System_RTC.minute);
 			
-			if(Sys_Params.Pressure_Param.Pressure_Unit==BAR)    
-			{
+			//if(Sys_Params.Pressure_Param.Pressure_Unit==BAR)    
+			//{
 				
-				SetTextValue2Float(current_screen_id,12, Sys_Params.Pressure_Param.TargetPreessure_Range);
+			SetTextValue0Float(current_screen_id,12, Sys_Params.Pressure_Param.TargetPreessure_Range);
 
-			}
-			else
+			//}
+			/*else
 			{
 				SetTextValue2Float(current_screen_id,12, Sys_Params.Pressure_Param.TargetPreessure_Range*BAR_PSI_TR);
 				
-			}	
+			}	*/
 			
 			break;
 		}
@@ -776,18 +830,28 @@ void UpdateUI(void)
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,2,1);
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,3,1);
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,4,Sys_Params.Dispense_Param.Run_Mode_Params != CONTINUE);
-				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,9,1);
 				if(Sys_RT_Status.pressure_disable_Mode == POWER_OFF )
 				{
 					//Sys_RT_Status.System_Option_Mode=STOP_MODE; 
 					SetControlEnable(_SCREEN_MAIN_UNLOCK_13,10,0);
+					SetControlEnable(_SCREEN_MAIN_UNLOCK_13,9,1);
 				}
 				else
 				{
-					SetControlEnable(_SCREEN_MAIN_UNLOCK_13,10,1);
+					
+					if(Sys_RT_Status.PURGE==POWER_ON)
+					{
+						SetControlEnable(_SCREEN_MAIN_UNLOCK_13,9,0);
+						SetControlEnable(_SCREEN_MAIN_UNLOCK_13,10,0);
+					}
+					else
+					{
+						SetControlEnable(_SCREEN_MAIN_UNLOCK_13,9,1);
+						SetControlEnable(_SCREEN_MAIN_UNLOCK_13,10,1);
+					}
 				}
 				//SetControlEnable(_SCREEN_MAIN_UNLOCK_13,10,1);
-				SetControlEnable(current_screen_id,12,(Sys_RT_Status.System_Option_Mode==STOP_MODE)&&(Sys_RT_Status.pressure_disable_Mode == POWER_ON));
+				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,12,(Sys_RT_Status.System_Option_Mode==STOP_MODE)&&(Sys_RT_Status.pressure_disable_Mode == POWER_ON));
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,13,1);
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,14,1);
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,15,1);
@@ -820,7 +884,7 @@ void UpdateUI(void)
 				SetTextValueFloat(current_screen_id,21, (Sys_RT_Status.Temperature_RT*1.8f+32.0f));  //温度华氏
 			}					
 			SetTextValueFloat(current_screen_id,22, Sys_RT_Status.Humidity_RT);     //湿度
-			SetTextValueint32_t(current_screen_id,23, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数	
+//			SetTextValueint32_t(current_screen_id,23, Sys_Params.Dispense_Param.shot_num);   //当天点胶次数	
 //点胶显示			
 			if(Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO)
 			{
@@ -925,7 +989,17 @@ void UpdateUI(void)
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,17,0);
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,18,0);				
 				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,19,0);
-				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,30,0);								
+				SetControlEnable(_SCREEN_MAIN_UNLOCK_13,30,0);
+				//pro_flag
+				if((pro_flag ==1)||(DISPENSING_IO_STATUS() == POWER_ON)||(cycle_flag ==1))
+				{
+					SetControlEnable(_SCREEN_MAIN_UNLOCK_13,11,0);
+				}
+				else
+				{
+					SetControlEnable(_SCREEN_MAIN_UNLOCK_13,11,1);
+				}
+				
 			}	
 			
 			break;
@@ -1004,8 +1078,8 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					if(state)
 					{
 						Sys_RT_Status.PURGE=POWER_ON;
-						Sys_Params.Dispense_Param.shot_num++;
-						Sys_Params.Dispense_Param.sys_count++;
+//						Sys_Params.Dispense_Param.shot_num++;
+						//Sys_Params.Dispense_Param.sys_count++;
 						
 					}
 					else
@@ -1453,7 +1527,7 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					if(state) 
 					{
 						Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_1_Value=Sys_RT_Status.RT_AN_Pressure;       //比例阀传过来的数字量
-						Sys_Params.Pressure_Param.Calibration_RT_Param.RT_1_Value=0;      
+						Sys_Params.Pressure_Param.Calibration_RT_Param.RT_1_Value=1;      //20240702
 						SetButtonValue(current_screen_id,1,0);
 					}
 					break;
@@ -1553,7 +1627,7 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					if(state) 
 					{
 						Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_3_Value=Sys_RT_Status.RT_AN_Vacuum;
-						Sys_Params.Pressure_Param.Calibration_RT_Param.RT_3_Value=0;
+						Sys_Params.Pressure_Param.Calibration_RT_Param.RT_3_Value=BAR_PSI_TR;
 						SetButtonValue(current_screen_id,3,0);		
 					}
 					break;
@@ -1563,7 +1637,7 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					if(state) 
 					{
 						Sys_Params.Pressure_Param.Calibration_RT_Param.Analog_4_Value=Sys_RT_Status.RT_AN_Vacuum;
-						Sys_Params.Pressure_Param.Calibration_RT_Param.RT_4_Value=72.551;
+						Sys_Params.Pressure_Param.Calibration_RT_Param.RT_4_Value=5*BAR_PSI_TR;
 						SetButtonValue(current_screen_id,4,0);
 					}
 					break;
@@ -1733,7 +1807,7 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 //					Sys_In = 0;
 					Level_To_Screen_ID=_SCREEN_SETTING_SAVE_DLG_14;
 					Prev_Screen=_SCREEN_SETTING_3;
-					SaveSystemParams();
+					//SaveSystemParams();
 					break;
 				}
 				case 4: 
@@ -2024,8 +2098,8 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					if(state)
 					{
 						Sys_RT_Status.PURGE=POWER_ON;
-						Sys_Params.Dispense_Param.shot_num++;
-						Sys_Params.Dispense_Param.sys_count++;
+//						Sys_Params.Dispense_Param.shot_num++;
+						//Sys_Params.Dispense_Param.sys_count++;
 						
 					}
 					else
@@ -2039,6 +2113,10 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					if(state)
 					{
 						Sys_Params.Dispense_Param.Run_Mode_Params = PRO_NO;
+						Sys_Params.Pressure_Param.TargetPreessure = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][2];
+						Sys_Params.Pressure_Param.Targetvacuum = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][3];				
+						Sys_Params.Pressure_Param.Pressure_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][4];
+						Sys_Params.Pressure_Param.Vacuum_Unit = Sys_Params.save_pro_buffer[Sys_Params.Dispense_Param.program_number][5];
 						SetButtonValue(_SCREEN_MAIN_UNLOCK_13,13,Sys_Params.Dispense_Param.Run_Mode_Params == PRO_NO);
 						SetButtonValue(_SCREEN_MAIN_UNLOCK_13,14,Sys_Params.Dispense_Param.Run_Mode_Params == TIMER);
 						SetButtonValue(_SCREEN_MAIN_UNLOCK_13,15,Sys_Params.Dispense_Param.Run_Mode_Params == CYCLE);
@@ -2158,7 +2236,7 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 					{
 						if(Sys_RT_Status.reset == POWER_ON)
 						{
-							Sys_Params.Dispense_Param.shot_num = 0;
+//							Sys_Params.Dispense_Param.shot_num = 0;
 							SetScreen(_SCREEN_RESET_SYCOUNT_9);
 						}					
 					}
@@ -2183,13 +2261,11 @@ void NotifyButton(uint16_t screen_id, uint16_t control_id, uint8_t state)
 
 				case 1: 
 				{
-					if(state) 
-					{
-						GPIO_OUT[DO_PRESSURE_ALARM].GPIO_Value=POWER_OFF;  //20240408
-						Pressure_Display_Enable=POWER_OFF;
-						SetScreen(_SCREEN_MAIN_UNLOCK_13);
-						current_screen_id = _SCREEN_MAIN_UNLOCK_13;
-					}
+					GPIO_OUT[DO_PRESSURE_ALARM].GPIO_Value=POWER_OFF;  //20240408
+					Pressure_Display_Enable=POWER_OFF;
+					SetScreen(_SCREEN_MAIN_UNLOCK_13);
+					current_screen_id = _SCREEN_MAIN_UNLOCK_13;
+					LoadSystemParams();					
 					break;
 				}
 			}
@@ -2390,7 +2466,7 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 			{
 				case 13:
 				{
-					Sys_Params.Pressure_Param.Calibration_Set_Param.RT_1_Value=0;
+					Sys_Params.Pressure_Param.Calibration_Set_Param.RT_1_Value=1.0;   //20240702
 					if(Sys_RT_Status.Pressure_Set_Cal_0Bar_Enable==POWER_ON)
 					{
 						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_1_Value=(value_double+(0.005));   
@@ -2417,7 +2493,7 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 			{
 				case 7:
 				{
-					Sys_Params.Pressure_Param.Calibration_Set_Param.RT_3_Value=0;
+					Sys_Params.Pressure_Param.Calibration_Set_Param.RT_3_Value=BAR_PSI_TR;
 					if(Sys_RT_Status.Vacuum_Set_Cal_0Bar_Enable==POWER_ON)
 					{
 						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_3_Value=(value_double+(0.005));
@@ -2426,7 +2502,7 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 				}
 				case 12:
 				{
-					Sys_Params.Pressure_Param.Calibration_Set_Param.RT_4_Value=72.551;
+					Sys_Params.Pressure_Param.Calibration_Set_Param.RT_4_Value=5*BAR_PSI_TR;
 					if(Sys_RT_Status.Vacuum_Set_Cal_5Bar_Enable==POWER_ON)
 					{
 						Sys_Params.Pressure_Param.Calibration_Set_Param.Analog_4_Value=(value_double+(0.005));
@@ -2489,16 +2565,16 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 				case 12:
 				{		
 					Sys_Params.Pressure_Param.TargetPreessure_Range = value_double;
-					if(Sys_Params.Pressure_Param.Pressure_Unit==BAR)
-					{
-						Sys_Params.Pressure_Param.TargetPreessure_Range=value_double;
+					//if(Sys_Params.Pressure_Param.Pressure_Unit==BAR)
+					//{
+					Sys_Params.Pressure_Param.TargetPreessure_Range=value_double;
 						//Sys_Params.save_pro_buffer[pron][2]=Sys_Params.Pressure_Param.TargetPreessure;	
-					}
-					else
-					{
-						Sys_Params.Pressure_Param.TargetPreessure_Range=(value_double/BAR_PSI_TR);
+					//}
+					//else
+					//{
+					//	Sys_Params.Pressure_Param.TargetPreessure_Range=(value_double/BAR_PSI_TR);
 						//Sys_Params.save_pro_buffer[pron][2]=Sys_Params.Pressure_Param.TargetPreessure;	
-					}
+					//}
 					break;
 				}
 				
@@ -2627,9 +2703,9 @@ void NotifyText(uint16_t screen_id, uint16_t control_id, uint8_t *str)
 			{
 				case 1:
 				{
-					Sys_Params.Dispense_Param.sys_count = value;
+//					Sys_Params.Dispense_Param.sys_count = value;
 					//SetTextValueint32_t(_SCREEN_RESET_SYCOUNT_9,2,Sys_Params.Dispense_Param.sys_count);
-					SetTextValueint32_t(_SCREEN_INPUT_SYSCOUNT_17,1,Sys_Params.Dispense_Param.sys_count);
+//					SetTextValueint32_t(_SCREEN_INPUT_SYSCOUNT_17,1,Sys_Params.Dispense_Param.sys_count);
 					break;
 				}
 			}

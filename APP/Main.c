@@ -39,7 +39,7 @@ uint32_t id[4] = {0,0,0,0};
 int c1 = 0;
 int c2 = 0;
 int c3 = 0;
-int c4 = 0;
+//int c4 = 0;
 uint8_t mcuidbuffer[25] = {0};
 int main(void)
 { 
